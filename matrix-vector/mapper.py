@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """mapper.py"""
+import sys
 
 """
 M = [[1, 2, 3],
@@ -33,8 +34,6 @@ M[i][j] * v[j]
 35 26 24
 """
 
-import sys
-
 # TODO: consider loading vector from the file in dfs
 v = [1, 2, 3]
 
@@ -42,7 +41,7 @@ v = [1, 2, 3]
 for line in sys.stdin:
     try:
         data = line.split()
-        i, j  = int(data[0]), int(data[1])
+        i, j = int(data[0]), int(data[1])
         mij = float(data[2])
     except Exception as err:
         continue
@@ -51,4 +50,4 @@ for line in sys.stdin:
     # print(f"i: {i}, j: {j}, mij: {mij}\n")
     value = mij * v[j]
     key = i
-    print( "%d\t%d" % (key, value) )
+    print("%d\t%d" % (key, value))

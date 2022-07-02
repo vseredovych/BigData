@@ -9,11 +9,8 @@ current_i = None
 for line in sys.stdin:
     data = line.split()
  
-    try:
-        i = int(data[0])
-        value = float(data[1])
-    except Exception as err:
-        continue
+    i = int(data[0])
+    value = float(data[1])
 
     # If the value has current index add it to the sum
     if current_i == i:

@@ -1,5 +1,4 @@
 #!python
-
 import numpy as np
 
 
@@ -11,18 +10,18 @@ def write_matrix(matrix, filename, folder, flag=""):
         for i in range(n):
             for j in range(m):
                 if flag or flag == 0:
-                    file.write(f"{flag} ")
+                    file.write(f'{i} {j} {matrix[i][j]} {flag}')
+                else:
+                    file.write(f'{i} {j} {matrix[i][j]}')
 
-                file.write(f'{i} {j} {matrix[i][j]}')
-                if (i != n - 1 or j != m - 1):
+                if i != n - 1 or j != m - 1:
                     file.write('\n')
 
 
-input_folder = './input'
-solution_folder = './solution'
+def main():
+    input_folder = './input'
+    solution_folder = './solution'
 
-
-if __name__ == '__main__':
     np.random.seed(42)
 
     n = 10
@@ -53,6 +52,11 @@ if __name__ == '__main__':
     write_matrix(
         np.dot(np.array(matrix1), np.array(matrix2)),
         matrices_multiplied_filename,
-        solution_folder)
+        solution_folder
+    )
 
     print(f'Done!')
+
+
+if __name__ == '__main__':
+    main()
