@@ -1,6 +1,7 @@
 import sys
 import string
 
+
 def main():
     """ Processing lines in format:
     "word1 word2 word3"
