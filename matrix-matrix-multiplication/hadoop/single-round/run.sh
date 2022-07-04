@@ -8,7 +8,7 @@ debug=1
 PWD=$(PWD)
 
 HADOOP_PROJECT_PATH="matrix-matrix-multiplication"
-PROJECT_NAME="natural-join"
+PROJECT_NAME="single-round"
 LOCAL_OUTPUT_DIR="../../output"
 
 # Prepare project directory
@@ -41,34 +41,12 @@ mapred streaming \
 [[ $debug -ne 0 ]] && hdfs dfs -cat ./$ROUND1_OUTPUT_DIR/part-00000
 
 echo "Round 1 has finished."
-
-############### Round 2 ###############
-echo "Round 2 has started."
-
-ROUND2_DIR="$HADOOP_PROJECT_PATH/$PROJECT_NAME/round2"
-ROUND2_OUTPUT_DIR="${ROUND2_DIR}/output"
-
-# Create dedicated directory for this round if it doesn't exist
-! hdfs dfs -test -d $ROUND2_DIR && hdfs dfs -mkdir $ROUND2_DIR
-
-# Delete the old output folder if exists
-hdfs dfs -test -d $ROUND2_OUTPUT_DIR && hdfs dfs -rm -r ./$ROUND2_OUTPUT_DIR
-
-mapred streaming \
- -D stream.reduce.input.field.separator=':' \
- -D stream.map.output.field.separator=':' \
- -mapper "python3 $PWD/mapper2.py"  \
- -reducer "python3 $PWD/reducer2.py"  \
- -input "$ROUND1_OUTPUT_DIR/part-00000" \
- -output "$ROUND2_OUTPUT_DIR"
-
-echo "Round 1 has finished."
 #######################################
 
 # Copying output
 [ ! -d $LOCAL_OUTPUT_DIR ] && mkdir -p $LOCAL_OUTPUT_DIR
 
-hdfs dfs -get -f ./$ROUND2_OUTPUT_DIR/part-00000 \
+hdfs dfs -get -f ./$ROUND1_OUTPUT_DIR/part-00000 \
   $LOCAL_OUTPUT_DIR/hadoop-${PROJECT_NAME}.txt
 
 

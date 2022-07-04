@@ -35,11 +35,11 @@ def main():
         if key == current_key:
             current_sum += x
         else:
-            print(f"{current_key} {current_sum}")
+            print(f"{current_key}: {current_sum}")
             current_sum = x
             current_key = key
 
-    print(f"{current_key} {current_sum}")
+    print(f"{current_key}: {current_sum}")
 
 
 if __name__ == '__main__':
