@@ -32,6 +32,8 @@ hdfs dfs -test -d $ROUND1_INPUT_DIR && hdfs dfs -rm -r $ROUND1_INPUT_DIR
 hdfs dfs -put ../../input $ROUND1_INPUT_DIR
 
 mapred streaming \
+ -D stream.reduce.input.field.separator=':' \
+ -D stream.map.output.field.separator=':' \
  -mapper "python3 $PWD/mapper1.py"  \
  -reducer "python3 $PWD/reducer1.py"  \
  -input "$ROUND1_INPUT_DIR/matrix1.txt" \
