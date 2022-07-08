@@ -8,7 +8,7 @@ debug=1
 PWD=$(PWD)
 
 HADOOP_PROJECT_PATH="matrix-matrix-multiplication"
-PROJECT_NAME="single-round"
+PROJECT_NAME="banding-pattern"
 LOCAL_OUTPUT_DIR="../../output"
 
 # Prepare project directory

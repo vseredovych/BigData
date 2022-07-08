@@ -31,21 +31,23 @@ def main():
     matrices_multiplied_filename = "matrix1 x matrix2.txt"
 
     fixed_matrix1 = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16]
     ]
     fixed_matrix2 = [
-        [9, 8, 7],
-        [6, 5, 4],
-        [3, 2, 1]
+        [1.1, 2.1, 3.1, 4.1],
+        [5.1, 6.1, 7.1, 8.1],
+        [9.1, 10.1, 11.1, 12.1],
+        [13.1, 14.1, 15.1, 16.1]
     ]
 
     random_matrix1 = np.random.rand(n, m)
     random_matrix2 = np.random.rand(m, n)
 
-    matrix1 = random_matrix1
-    matrix2 = random_matrix2
+    matrix1 = fixed_matrix1
+    matrix2 = fixed_matrix2
 
     write_matrix(matrix1, matrix1_filename, input_folder, 0)
     write_matrix(matrix2, matrix2_filename, input_folder, 1)
