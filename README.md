@@ -3,7 +3,7 @@
 Contains a number of BigData algorithms implemented with Hadoop MapReduce Streaming framework (Python).
 
 ### matrix-matrix-multiplication
-- [banding-pattern](matrix-matrix-multiplication/hadoop/banding-pattern/banding-pattern)
+- [banding-pattern](matrix-matrix-multiplication/hadoop/banding-pattern)
 - [blocking-pattern](matrix-matrix-multiplication/hadoop/blocking-pattern)
 - [natural-join](matrix-matrix-multiplication/hadoop/natural-join)
 - [single-round](matrix-matrix-multiplication/hadoop/single-round)
